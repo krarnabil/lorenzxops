@@ -7,83 +7,65 @@
   <title>نورهان حسن حمزة - السيرة الذاتية</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-
     body {
       font-family: 'Cairo', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f0fb;
-      color: #2e1a47;
-      line-height: 1.7;
+      background-color: #f3f0fa;
+      color: #2d1e4f;
     }
-
     body.dark {
-      background-color: #2e1a47;
-      color: #f4f0fb;
+      background-color: #2d1e4f;
+      color: #ffffff;
     }
-
     header {
-      background-color: #7e57c2;
+      background-color: #6a1b9a;
       color: white;
+      padding: 25px;
       text-align: center;
-      padding: 30px 10px;
       font-size: 28px;
-      font-weight: bold;
-      border-bottom: 5px solid #9575cd;
     }
-
     .controls {
       display: flex;
       justify-content: center;
-      gap: 12px;
-      padding: 16px;
       flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px;
     }
-
     .controls button {
-      background-color: #9575cd;
+      padding: 10px 16px;
+      background-color: #8e24aa;
+      color: white;
       border: none;
       border-radius: 8px;
-      color: white;
-      padding: 10px 18px;
-      font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s;
+      font-weight: bold;
     }
-
     .controls button:hover {
-      background-color: #7e57c2;
+      background-color: #6a1b9a;
     }
-
     .section {
       background: white;
-      margin: 20px auto;
       max-width: 900px;
+      margin: 20px auto;
       padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
-
     body.dark .section {
-      background: #3c2a58;
+      background-color: #3b2b5c;
     }
-
     ul {
       padding-right: 20px;
+      line-height: 1.8;
     }
-
     a {
-      color: #512da8;
-      font-weight: bold;
+      color: #8e24aa;
       text-decoration: none;
+      font-weight: bold;
     }
-
     a:hover {
       text-decoration: underline;
-    }
-
-    body.dark a {
-      color: #bb86fc;
     }
   </style>
 </head>
@@ -98,10 +80,9 @@
   <button onclick="toggleTheme()" id="themeToggle">الوضع الليلي</button>
 </div>
 
-
 <div class="section">
-  <h2>المعلومات الشخصية</h2>
-  <ul>
+  <h2 id="personal-title">المعلومات الشخصية</h2>
+  <ul id="personal-info">
     <li>الحالة الاجتماعية: عزباء</li>
     <li>تاريخ الميلاد: 12/3/2004</li>
     <li>لون البشرة: حنطاوي</li>
@@ -152,39 +133,68 @@
 const translations = {
   ar: {
     name: "نورهان حسن حمزة",
+    personalTitle: "المعلومات الشخصية",
+    personalInfo: `
+      <li>الحالة الاجتماعية: عزباء</li>
+      <li>تاريخ الميلاد: 12/3/2004</li>
+      <li>لون البشرة: حنطاوي</li>
+      <li>الطول: 155 سم</li>
+      <li>الوزن: 65 كغم</li>
+    `,
     aboutTitle: "من أنا؟",
-    aboutText: "أنا طالبة في المرحلة الثانية من كلية الصيدلة، طموحة وأسعى إلى اكتساب الخبرة العملية وتطوير مهاراتي في مجال الأدوية والتسويق. لدي قدرة ممتازة على التواصل والإقناع، واهتمام كبير بالتفاصيل والدقة في العمل. أبحث عن فرصة عمل كمندوبة أدوية أو في خدمة العملاء، وأسعى لأكون جزءًا من فريق ناجح أساهم في دعمه وتحقيق أهدافه.",
+    aboutText: "أنا طالبة في المرحلة الثانية من كلية الصيدلة، طموحة وأسعى إلى اكتساب الخبرة العملية وتطوير مهاراتي في مجال الأدوية والتسويق...",
     skillsTitle: "المهارات",
     contactTitle: "معلومات الاتصال",
     address: "📍 بغداد / المدائن / شارع السوق",
     whatsappBtn: "تواصل معي على واتساب",
-    languagesTitle: "اللغات"
+    languagesTitle: "اللغات",
+    languagesList: "<p>اللغة العربية: <strong>94%</strong></p><p>اللغة الإنجليزية: <strong>67%</strong></p>"
   },
   en: {
     name: "Norhan Hassan Hamza",
+    personalTitle: "Personal Information",
+    personalInfo: `
+      <li>Marital Status: Single</li>
+      <li>Date of Birth: 12/3/2004</li>
+      <li>Skin Tone: Wheatish</li>
+      <li>Height: 155 cm</li>
+      <li>Weight: 65 kg</li>
+    `,
     aboutTitle: "About Me",
-    aboutText: "I am a second-year pharmacy student, ambitious and eager to gain experience and develop my skills in pharmaceuticals and marketing. I have excellent communication and persuasion skills and strong attention to detail. I'm looking for a role as a medical representative or in customer service to contribute to a successful team.",
+    aboutText: "I am a second-year pharmacy student, ambitious and eager to gain experience and develop my skills in pharmaceuticals and marketing...",
     skillsTitle: "Skills",
     contactTitle: "Contact Info",
     address: "📍 Baghdad / Mada'in / Market Street",
     whatsappBtn: "Contact me on WhatsApp",
-    languagesTitle: "Languages"
+    languagesTitle: "Languages",
+    languagesList: "<p>Arabic: <strong>94%</strong></p><p>English: <strong>67%</strong></p>"
   },
   ku: {
     name: "نوورهان حەسەن حەمزە",
+    personalTitle: "زانیاری کەسی",
+    personalInfo: `
+      <li>بارودوخی خێزانی: نەخۆشەویست</li>
+      <li>دەروونی لەدایکبوون: 12/3/2004</li>
+      <li>ڕەنگی پوست: حەنتاوی</li>
+      <li>بەرزی: 155 سم</li>
+      <li>کێشی: 65 کگ</li>
+    `,
     aboutTitle: "دەربارەی من",
-    aboutText: "من خوێندکاری ساڵی دووەمی پزیشکی داروسازی مە، خاوەن هیوا و حەول دەدەم بۆ بەدەستهێنانی تاقیکردنەوە و پەرەسەندنی تواناکانم لە بوارەکانی داروسازی و بازاڕگەری. دەمەوێت بێمە بەشێک لە تیمێکی سەرکەوتوو.",
+    aboutText: "من خوێندکاری ساڵی دووەمی پزیشکی داروسازی مە، خاوەن هیوا و حەول دەدەم بۆ بەدەستهێنانی تاقیکردنەوە و پەرەسەندنی تواناکانم...",
     skillsTitle: "تواناکان",
     contactTitle: "زانیاری پەیوەندی",
     address: "📍 بەغداد / مەدایین / شەقامی بازاڕ",
     whatsappBtn: "پەیوەندی بکە لە واتساپ",
-    languagesTitle: "زمانەکان"
+    languagesTitle: "زمانەکان",
+    languagesList: "<p>عەڕەبی: <strong>94%</strong></p><p>ئینگلیزی: <strong>67%</strong></p>"
   }
 };
 
 function setLanguage(lang) {
   const t = translations[lang];
   document.getElementById("name").textContent = t.name;
+  document.getElementById("personal-title").textContent = t.personalTitle;
+  document.getElementById("personal-info").innerHTML = t.personalInfo;
   document.getElementById("about-title").textContent = t.aboutTitle;
   document.getElementById("about-text").textContent = t.aboutText;
   document.getElementById("skills-title").textContent = t.skillsTitle;
@@ -192,9 +202,7 @@ function setLanguage(lang) {
   document.getElementById("address").textContent = t.address;
   document.getElementById("whatsapp-btn").textContent = t.whatsappBtn;
   document.getElementById("languages-title").textContent = t.languagesTitle;
-  document.getElementById("languages-list").innerHTML =
-    (lang === "ar" ? "اللغة العربية" : lang === "en" ? "Arabic" : "عەرەبی") + ": <strong>94%</strong><br>" +
-    (lang === "ar" ? "اللغة الإنجليزية" : lang === "en" ? "English" : "ئینگلیزی") + ": <strong>67%</strong>";
+  document.getElementById("languages-list").innerHTML = t.languagesList;
 
   document.body.dir = lang === 'en' ? 'ltr' : 'rtl';
   document.body.style.textAlign = lang === 'en' ? 'left' : 'right';
@@ -202,8 +210,8 @@ function setLanguage(lang) {
 
 function toggleTheme() {
   document.body.classList.toggle('dark');
-  const btn = document.getElementById("themeToggle");
-  btn.textContent = document.body.classList.contains("dark") ? "الوضع النهاري" : "الوضع الليلي";
+  document.getElementById("themeToggle").textContent =
+    document.body.classList.contains("dark") ? "الوضع النهاري" : "الوضع الليلي";
 }
 </script>
 
