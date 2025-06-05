@@ -69,115 +69,52 @@
     }
   </style>
 
-    <style>
-    
-
+<style>
 @media print {
   html, body {
     width: 210mm;
     height: 297mm;
-    font-size: 11.5px;
-    line-height: 1.3;
+    font-size: 10px;
+    line-height: 1.15;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    direction: rtl;
   }
   header {
-    font-size: 18px;
-    padding: 6px 0;
-    margin-bottom: 4px;
+    font-size: 16px !important;
+    padding: 4px 0 !important;
+    margin-bottom: 0 !important;
   }
   .section {
-    margin: 4px 0;
-    padding: 6px 10px;
-    page-break-inside: avoid;
-  }
-  ul {
-    padding-right: 12px;
-    margin: 0;
-  }
-  p, li {
-    margin: 2px 0;
+    margin: 2px 0 !important;
+    padding: 4px 6px !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+    background: none !important;
   }
   .controls {
     display: none !important;
   }
-  @page {
-    size: A4;
-    margin: 8mm;
-  }
-
-  html, body {
-    width: 210mm;
-    height: 297mm;
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    line-height: 1.4;
-    overflow: hidden;
-  }
-  header {
-    font-size: 20px;
-    padding: 10px 0;
-  }
-  .section {
-    padding: 8px 12px;
-    margin: 8px 0;
-  }
   ul {
-    padding-right: 16px;
+    padding-right: 6px;
+    margin: 0;
   }
   p, li {
-    margin: 4px 0;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    color: black !important;
+    text-decoration: none;
   }
   @page {
     size: A4;
-    margin: 10mm;
+    margin: 4mm;
   }
-
-      body {
-        background: white !important;
-        color: black !important;
-        font-size: 14px;
-        line-height: 1.6;
-        direction: rtl;
-        font-family: 'Cairo', sans-serif;
-        margin: 0;
-      }
-      header {
-        background: none !important;
-        color: black !important;
-        font-size: 24px;
-        border-bottom: 2px solid #000;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-        text-align: center;
-      }
-      .controls, .controls button {
-        display: none !important;
-      }
-      .section {
-        background: none !important;
-        box-shadow: none !important;
-        border: none;
-        padding: 10px;
-        margin: 10px 0;
-        page-break-inside: avoid;
-      }
-      ul {
-        padding-right: 20px;
-      }
-      a {
-        color: black !important;
-        text-decoration: none;
-      }
-      @page {
-        size: A4;
-        margin: 20mm;
-      }
-    }
-    </style>
-    </head>
-    
+}
+</style>
+</head>
 <body>
 
 <header id="name">نورهان حسن حمزة</header>
