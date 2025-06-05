@@ -129,6 +129,83 @@
             font-size: 14px;
         }
     </style>
+
+    <style>
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background-color: #ff66b2;
+            color: white;
+        }
+
+        .top-bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .lang-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-buttons button {
+            background-color: white;
+            color: #ff66b2;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .theme-toggle button {
+            background-color: white;
+            color: #ff66b2;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .whatsapp-button {
+            margin-top: 10px;
+        }
+
+        .whatsapp-button a {
+            background-color: #25d366;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+
+        body.dark {
+            background: #1c1c1c;
+            color: #fff;
+        }
+
+        body.dark header {
+            background: #880e4f;
+        }
+
+        body.dark .lang-buttons button,
+        body.dark .theme-toggle button {
+            background-color: #333;
+            color: white;
+        }
+
+        .section {
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -285,6 +362,15 @@
             sun.style.display = 'inline';
             moon.style.display = 'none';
         }
+    }
+</script>
+
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        const btn = document.getElementById('theme-btn');
+        body.classList.toggle('dark');
+        btn.textContent = body.classList.contains('dark') ? 'نهاري' : 'ليلي';
     }
 </script>
 </body>
