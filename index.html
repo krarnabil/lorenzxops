@@ -51,54 +51,172 @@
             text-align: center;
             margin-top: 10px;
         }
+        .lang-switch button {
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #ff66b2;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+
+    <style>
+        body.dark {
+            background: #1c1c1c;
+            color: #fff;
+        }
+        body.dark header {
+            background: #ff66b2;
+        }
+        body.dark .section {
+            background: #2e2e2e;
+        }
+        body.dark .whatsapp-button a {
+            background-color: #128c7e;
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 999;
+        }
+        .theme-toggle button {
+            padding: 8px 12px;
+            border-radius: 8px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+<div class="theme-toggle">
+    <button onclick="toggleTheme()">تبديل النمط</button>
+</div>
 
-<header>نورهان حسن حمزة</header>
+<header id="name">نورهان حسن حمزة</header>
+
+<div class="lang-switch">
+    <button onclick="setLanguage('ar')">عربي</button>
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('ku')">کوردی</button>
+</div>
 
 <div class="container">
     <div class="section">
-        <h3>من أنا؟</h3>
-        <p>أنا طالبة في المرحلة الثانية من كلية الصيدلة. طموحة إلى وأسعى إلى الخبرة العملية. أمتلك مهارات في مجال الأدوية، وقدرة على تحمل ضغط العمل، وأتمتع بمهارات تواصل فعّالة.</p>
+        <h3 id="about-title">من أنا؟</h3>
+        <p id="about-text">
+            أنا طالبة في المرحلة الثانية من كلية الصيدلة، طموحة وأسعى إلى اكتساب الخبرة العملية وتطوير مهاراتي في مجال الأدوية والتسويق.
+            لدي قدرة ممتازة على التواصل والإقناع، واهتمام كبير بالتفاصيل والدقة في العمل.
+            أبحث عن فرصة عمل كمندوبة أدوية أو في خدمة العملاء، وأسعى لأكون جزءًا من فريق ناجح أساهم في دعمه وتحقيق أهدافه.
+        </p>
     </div>
 
     <div class="section">
-        <h3>معلومات الاتصال</h3>
+        <h3 id="contact-title">معلومات الاتصال</h3>
         <p>📞 07765364626</p>
         <p>📧 Eheiha412@gmail.com</p>
-        <p>📍 بغداد / المدائن / شارع السوق</p>
+        <p id="address">📍 بغداد / المدائن / شارع السوق</p>
     </div>
 
     <div class="section">
-        <h3>اللغات</h3>
+        <h3 id="lang-title">اللغات</h3>
         <div class="languages">
-            <span>الإنجليزية</span><span>67%</span>
+            <span id="english">الإنجليزية</span><span>67%</span>
         </div>
         <div class="languages">
-            <span>العربية</span><span>94%</span>
-        </div>
-        <div class="languages">
-            <span>الكردية</span><span>60%</span>
+            <span id="arabic">العربية</span><span>94%</span>
         </div>
     </div>
 
     <div class="section">
-        <h3>المهارات</h3>
-        <ul>
+        <h3 id="skills-title">المهارات</h3>
+        <ul id="skills-list">
             <li>مهارة التواصل الفعّال</li>
             <li>اللباقة في الحديث والإقناع</li>
             <li>الرد على الاستفسارات</li>
             <li>تحمل ضغط العمل</li>
             <li>السرعة في التعلم</li>
-            <li>معرفة في صيدلية</li>
+            <li>إدارة الوقت وتنظيم المهام</li>
+            <li>خبرة سابقة في صيدلية</li>
+            <li>القدرة على العمل من المنزل أو ميدانيًا</li>
+            <li>استخدام تطبيقات الهاتف (واتساب – تلغرام – البريد الإلكتروني)</li>
         </ul>
     </div>
 
     <div class="whatsapp-button">
-        <a href="https://wa.me/9647765364626" target="_blank">تواصل معي على واتساب</a>
+        <a href="https://wa.me/9647765364626" target="_blank" id="whatsapp-btn">تواصل معي على واتساب</a>
     </div>
 </div>
 
+<script>
+    const translations = {
+        ar: {
+            name: "نورهان حسن حمزة",
+            aboutTitle: "من أنا؟",
+            aboutText: "أنا طالبة في المرحلة الثانية من كلية الصيدلة، طموحة وأسعى إلى اكتساب الخبرة العملية وتطوير مهاراتي في مجال الأدوية والتسويق. لدي قدرة ممتازة على التواصل والإقناع، واهتمام كبير بالتفاصيل والدقة في العمل. أبحث عن فرصة عمل كمندوبة أدوية أو في خدمة العملاء، وأسعى لأكون جزءًا من فريق ناجح أساهم في دعمه وتحقيق أهدافه.",
+            contactTitle: "معلومات الاتصال",
+            address: "📍 بغداد / المدائن / شارع السوق",
+            langTitle: "اللغات",
+            english: "الإنجليزية",
+            arabic: "العربية",
+            skillsTitle: "المهارات",
+            whatsappBtn: "تواصل معي على واتساب"
+        },
+        en: {
+            name: "Norhan Hassan Hamza",
+            aboutTitle: "About Me",
+            aboutText: "I am a second-year pharmacy student, ambitious and eager to gain practical experience and develop my skills in pharmaceuticals and marketing. I have excellent communication and persuasion skills, great attention to detail and precision. I am seeking a position as a medical representative or in customer service, aiming to be part of a successful team and contribute to its goals.",
+            contactTitle: "Contact Information",
+            address: "📍 Baghdad / Mada'in / Market Street",
+            langTitle: "Languages",
+            english: "English",
+            arabic: "Arabic",
+            skillsTitle: "Skills",
+            whatsappBtn: "Contact me on WhatsApp"
+        },
+        ku: {
+            name: "نوڕهان حەسەن حەمزە",
+            aboutTitle: "دەربارەی من",
+            aboutText: "من خوێندکاری ساڵی دووەمی زانکۆی پزیشکی داروسازی مە، خاوەن هیوا و حەول دەدەمە بوو بەدەستهێنانی تاقیکردنەوەی کاری و پەرەسەندنی تواناکانم لە بواری دەرمان و بازاڕگەری. توانایەکی باشم هەیە لە پەیوەندیدان و قایلکردن، و سەرسوڕه‌تی زۆرم هەیە لە کار. دەمەوێت کاری بۆ وەک نوێنەری دەرمان یان لە پەیوەندی بە گەشەپێدانی خزمەتگوزاری بکەم.",
+            contactTitle: "زانیاری پەیوەندی",
+            address: "📍 بەغداد / مەدایین / شەقامی بازاڕ",
+            langTitle: "زمانەکان",
+            english: "ئینگلیزی",
+            arabic: "عەڕەبی",
+            skillsTitle: "تواناکان",
+            whatsappBtn: "پەیوەندی بکە لە ڕێگەی واتسئاپ"
+        }
+    };
+
+    function setLanguage(lang) {
+        const t = translations[lang];
+        document.getElementById("name").textContent = t.name;
+        document.getElementById("about-title").textContent = t.aboutTitle;
+        document.getElementById("about-text").textContent = t.aboutText;
+        document.getElementById("contact-title").textContent = t.contactTitle;
+        document.getElementById("address").textContent = t.address;
+        document.getElementById("lang-title").textContent = t.langTitle;
+        document.getElementById("english").textContent = t.english;
+        document.getElementById("arabic").textContent = t.arabic;
+        document.getElementById("skills-title").textContent = t.skillsTitle;
+        document.getElementById("whatsapp-btn").textContent = t.whatsappBtn;
+
+        // Change direction
+        document.body.dir = lang === 'en' ? 'ltr' : 'rtl';
+        document.body.style.textAlign = lang === 'en' ? 'left' : 'right';
+    }
+</script>
+
+
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle('dark');
+    }
+</script>
 </body>
 </html>
