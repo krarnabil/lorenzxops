@@ -5,162 +5,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>نورهان حسن حمزة - السيرة الذاتية</title>
-  
-    <style>
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-
-    :root {
-      --primary: #0d47a1;
-      --secondary: #e3f2fd;
-      --card-bg: #ffffff;
-      --text-color: #0d1b2a;
-      --accent: #1976d2;
-    }
 
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: var(--secondary);
       margin: 0;
       padding: 0;
-      direction: rtl;
-      text-align: right;
-      color: var(--text-color);
+      background-color: #f4f0fb;
+      color: #2e1a47;
+      line-height: 1.7;
     }
 
     body.dark {
-      background-color: #102a43;
-      color: #e0e0e0;
+      background-color: #2e1a47;
+      color: #f4f0fb;
     }
 
     header {
-      background-color: var(--primary);
+      background-color: #7e57c2;
       color: white;
-      padding: 20px 10px;
       text-align: center;
+      padding: 30px 10px;
       font-size: 28px;
       font-weight: bold;
+      border-bottom: 5px solid #9575cd;
     }
 
     .controls {
-      text-align: center;
-      margin: 20px auto;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 12px;
+      padding: 16px;
+      flex-wrap: wrap;
     }
 
     .controls button {
-      background-color: var(--accent);
-      color: white;
+      background-color: #9575cd;
       border: none;
       border-radius: 8px;
-      padding: 10px 16px;
+      color: white;
+      padding: 10px 18px;
       font-weight: bold;
-      font-size: 16px;
       cursor: pointer;
-      transition: 0.2s ease-in-out;
+      transition: background-color 0.3s;
     }
 
     .controls button:hover {
-      background-color: #125ea2;
+      background-color: #7e57c2;
     }
 
     .section {
-      background-color: var(--card-bg);
+      background: white;
       margin: 20px auto;
+      max-width: 900px;
       padding: 25px;
-      max-width: 850px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      border-radius: 15px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
     }
 
     body.dark .section {
-      background-color: #1c2c4c;
+      background: #3c2a58;
     }
 
     ul {
       padding-right: 20px;
-      line-height: 1.8;
     }
 
     a {
-      color: #1976d2;
-      text-decoration: none;
+      color: #512da8;
       font-weight: bold;
+      text-decoration: none;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #e3f2fd;
-      margin: 0;
-      padding: 0;
-      direction: rtl;
-      color: #0d47a1;
-      transition: all 0.3s ease;
-    }
-
-    body.dark {
-      background-color: #0d1b2a;
-      color: #ffffff;
-    }
-
-    header {
-      background-color: #1976d2;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .controls {
-      text-align: center;
-      margin: 10px;
-    }
-
-    .controls button {
-      background-color: #1976d2;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      margin: 0 5px;
-      padding: 10px 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .section {
-      background-color: #ffffff;
-      margin: 20px auto;
-      padding: 20px;
-      max-width: 800px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    }
-
-    body.dark .section {
-      background-color: #1e293b;
-    }
-
-    ul {
-      line-height: 1.8;
-    }
-
-    a {
-      color: #1b5e20;
-      text-decoration: none;
-      font-weight: bold;
+    body.dark a {
+      color: #bb86fc;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1 id="name">نورهان حسن حمزة</h1>
-</header>
+<header id="name">نورهان حسن حمزة</header>
 
 <div class="controls">
   <button onclick="setLanguage('ar')">عربي</button>
@@ -189,7 +118,6 @@
     <li>القدرة على العمل من المنزل أو ميدانيًا</li>
     <li>استخدام تطبيقات الهاتف (واتساب – تلغرام – البريد الإلكتروني)</li>
   </ul>
-
 </div>
 
 <div class="section">
@@ -251,6 +179,10 @@ function setLanguage(lang) {
   document.getElementById("contact-title").textContent = t.contactTitle;
   document.getElementById("address").textContent = t.address;
   document.getElementById("whatsapp-btn").textContent = t.whatsappBtn;
+  document.getElementById("languages-title").textContent = t.languagesTitle;
+  document.getElementById("languages-list").innerHTML =
+    (lang === "ar" ? "اللغة العربية" : lang === "en" ? "Arabic" : "عەرەبی") + ": <strong>94%</strong><br>" +
+    (lang === "ar" ? "اللغة الإنجليزية" : lang === "en" ? "English" : "ئینگلیزی") + ": <strong>67%</strong>";
 
   document.body.dir = lang === 'en' ? 'ltr' : 'rtl';
   document.body.style.textAlign = lang === 'en' ? 'left' : 'right';
@@ -258,8 +190,8 @@ function setLanguage(lang) {
 
 function toggleTheme() {
   document.body.classList.toggle('dark');
-  const themeBtn = document.getElementById("themeToggle");
-  themeBtn.textContent = document.body.classList.contains("dark") ? "الوضع النهاري" : "الوضع الليلي";
+  const btn = document.getElementById("themeToggle");
+  btn.textContent = document.body.classList.contains("dark") ? "الوضع النهاري" : "الوضع الليلي";
 }
 </script>
 
